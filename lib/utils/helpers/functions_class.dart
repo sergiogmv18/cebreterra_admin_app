@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class FunctionsClass{
-
+  
+  static const double borderRadius = 8;
  /*
   * Activate or not be able to go back to the previous page
   * @author  SGVx
@@ -43,4 +44,7 @@ String generateRandomNumber() {
     Uint8List bytes = base64Decode(img);
     return bytes;
   }
+
+
+
 }

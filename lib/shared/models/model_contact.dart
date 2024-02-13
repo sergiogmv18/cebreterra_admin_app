@@ -66,7 +66,7 @@ class Contact extends ContactCebreterra{
   * @version 1.0 - 20230215 - initial release
   * @return  <Map<String, dynamic>>
   */
-  Future<bool>deleteSpecificContact(Contact contact)async{
+  Future<bool>deleteSpecificContact(ContactCebreterra contact)async{
      Map<String, dynamic> parameters = {
       'action': 'deleteContact',
       'id': contact.getServerId().toString(),
@@ -83,7 +83,7 @@ class Contact extends ContactCebreterra{
   * @version 1.0 - 20230215 - initial release
   * @return  <Map<String, dynamic>>
   */
-  Future<Map<String, dynamic>> registerOrEditContact(Contact contact)async{
+  Future<Map<String, dynamic>> registerOrEditContact(ContactCebreterra contact)async{
     Map<String, dynamic> response = {};
     Map<String, dynamic> parameters = {
       'action':'registerOrEditContact',

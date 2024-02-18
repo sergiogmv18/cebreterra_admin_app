@@ -1,4 +1,4 @@
-package com.example.cebreterra
+package com.admin.cebreterra
 
 import io.flutter.embedding.android.FlutterActivity
 

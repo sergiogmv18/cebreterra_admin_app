@@ -1,6 +1,7 @@
 
 import 'package:cebreterra/config/route.dart';
 import 'package:cebreterra/config/style.dart';
+import 'package:cebreterra/features/contact/widget/detail_comment.dart';
 import 'package:cebreterra/shared/entities/contact.dart';
 import 'package:cebreterra/shared/models/model_contact.dart';
 import 'package:cebreterra/shared/models/responsive.dart';
@@ -20,7 +21,7 @@ class Comment extends StatelessWidget{
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(FunctionsClass.borderRadius), 
       ),
-      color: CustomColors.pantone5615,
+      color: CustomColors.tableColor2,
       child:Container(
         padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         transformAlignment: Alignment.center,
@@ -31,10 +32,6 @@ class Comment extends StatelessWidget{
             SelectableText.rich(
               TextSpan(
                 children: [
-                  TextSpan(
-                    text:'Comentario: ',
-                    style: Responsive.isTablet(context)? Theme.of(context).textTheme.headlineMedium!.copyWith(color: CustomColors.colorFront) : Theme.of(context).textTheme.titleLarge!.copyWith(color: CustomColors.colorFront),
-                  ),
                   TextSpan(
                     text:contactWk.getComments() ?? 'Comentario',
                     style: Responsive.isTablet(context)? Theme.of(context).textTheme.headlineSmall!.copyWith(color: CustomColors.colorFront) : Theme.of(context).textTheme.titleMedium!.copyWith(color: CustomColors.colorFront),
@@ -50,18 +47,18 @@ class Comment extends StatelessWidget{
                   child: Text('ver mas',
                     style:Responsive.isTablet(context)? 
                       Theme.of(context).textTheme.headlineSmall!.copyWith( 
-                        color: CustomColors.colorFront,
-                        decorationColor: CustomColors.colorFront,
+                        color: CustomColors.colorDark,
+                        decorationColor: CustomColors.colorDark,
                         decorationThickness: 1.5,decoration: TextDecoration.underline
                     ) :
                     Theme.of(context).textTheme.titleMedium!.copyWith( 
-                      color: CustomColors.colorFront,
-                      decorationColor: CustomColors.colorFront,
+                      color: CustomColors.colorDark,
+                      decorationColor: CustomColors.colorDark,
                       decorationThickness: 1.5,decoration: TextDecoration.underline,
                     ),
                   ),
                   onPressed: ()async{
-                  //  showDetailsOfDoubts(allContacts[index]);
+                    showDetailsOfDoubts(context, contactWk);
                   },
                 ),
                 IconButton(

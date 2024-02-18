@@ -1,4 +1,5 @@
 import 'package:cebreterra/config/style.dart';
+import 'package:cebreterra/utils/helpers/functions_class.dart';
 import 'package:flutter/material.dart';
 
 class AlertDialogCustom extends StatelessWidget {
@@ -10,9 +11,9 @@ class AlertDialogCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0), // Radio del borde del Card
+        borderRadius: BorderRadius.circular(FunctionsClass.borderRadius), // Radio del borde del Card
       ),
-      backgroundColor:CustomColors.colorFront,
+      backgroundColor:CustomColors.tableColor2,
       title: Text(
         title!,
         style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold) 

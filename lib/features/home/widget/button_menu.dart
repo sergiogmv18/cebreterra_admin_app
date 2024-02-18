@@ -14,7 +14,7 @@ class ButtonMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ButtonCustom(
-      backgroundColor: CustomColors.pantone5615,
+      backgroundColor: CustomColors.tableColor2,
       onPressed:(){
           Navigator.of(context).pushNamedAndRemoveUntil(route!, (route) => false);        
       }, 
@@ -25,7 +25,7 @@ class ButtonMenu extends StatelessWidget {
           children: [
             FaIcon(
               icon, 
-              color: CustomColors.colorFront
+              color: CustomColors.colorDark
             ),
             SizedBox(
               height: Responsive.isMobile(context) ? 10 : 20,
@@ -33,7 +33,7 @@ class ButtonMenu extends StatelessWidget {
             AutoSizeText(
               title!,
               maxLines: 1,
-              style: Responsive.isMobile(context) ? Theme.of(context).textTheme.titleMedium!.copyWith(color:CustomColors.colorFront ) : Theme.of(context).textTheme.titleLarge!.copyWith(color: CustomColors.colorFront),
+              style: Responsive.isMobile(context) ? Theme.of(context).textTheme.titleMedium!.copyWith(color:CustomColors.colorDark ) : Theme.of(context).textTheme.titleLarge!.copyWith(color: CustomColors.colorDark),
               textAlign: TextAlign.center,
             ),
           ],

@@ -1,21 +1,20 @@
+
 import 'package:animate_do/animate_do.dart';
 import 'package:cebreterra/config/route.dart';
 import 'package:cebreterra/config/style.dart';
-import 'package:cebreterra/features/product/widget/product.dart';
-import 'package:cebreterra/shared/models/products.dart';
-import 'package:cebreterra/shared/models/responsive.dart';
+import 'package:cebreterra/features/category/widget/category.dart';
+import 'package:cebreterra/shared/models/model_category.dart';
 import 'package:cebreterra/utils/ui/app_bar.dart';
 import 'package:cebreterra/utils/ui/circular_progress.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-class ProductsScreen extends StatefulWidget {
-  const ProductsScreen({super.key});
+class CategoryebreterraScreen extends StatefulWidget {
+  const CategoryebreterraScreen({super.key});
   @override
-   ProductsScreenState createState() => ProductsScreenState();
+   CategoryebreterraScreenState createState() => CategoryebreterraScreenState();
 }
-class ProductsScreenState extends State<ProductsScreen> {
+class CategoryebreterraScreenState extends State<CategoryebreterraScreen> {
   @override
   void initState() {
     super.initState();
@@ -27,41 +26,40 @@ class ProductsScreenState extends State<ProductsScreen> {
       appBar: AppBarCustom(
         showButtonReturn: true,
         route: RoutesPath.home,
-        title:'Productos'
+        title:'Categorias'
       ),
       backgroundColor: CustomColors.colorFront,
       floatingActionButton: IconButton(
         onPressed: ()async{
-          Navigator.of(context).pushNamedAndRemoveUntil(RoutesPath.editOrRegisterProduct, (route) => false);    
+          Navigator.of(context).pushNamedAndRemoveUntil(RoutesPath.editOrRegisterCategory, (route) => false);
         }, 
         icon:const FaIcon(FontAwesomeIcons.circlePlus),
-        color:  CustomColors.pantone720,
-        iconSize:Responsive.isTablet(context) ? 70: 50,
+        color:  CustomColors.pantone5615,
+        iconSize: 50,
       ),
       body: Container(
-        padding: const EdgeInsets.only(left: 10, right: 10),
+        padding: const EdgeInsets.only(left: 20, right: 20),
         alignment: Alignment.topCenter,
-        child:FutureBuilder(
-          future:Product().getAllProduct(),
+        child: FutureBuilder(
+          future:ModelCategoryCebreterra().getAllCategories(),
           builder: (context, app){
             if(app.connectionState == ConnectionState.done){
-              List? allProduct = app.data;
-              if(allProduct != null && allProduct.isNotEmpty){
+              List? allCategories = app.data;
+              if(allCategories != null && allCategories.isNotEmpty){
                 return ListView.builder(
-                  itemCount: allProduct.length,
+                  itemCount: allCategories.length,
                   itemBuilder: (BuildContext context, int index) {
                     return  FadeInUp(
                       duration: Duration(seconds: 1+index),
-                      child:ProductWidget(product: allProduct[index]),
+                      child:CategoryWidget(categoryWk: allCategories[index]),
                     );
                   },
-                );
+                );    
               }
               return Text(
-                'No se a registrado un Producto',
+                'No se a registrado una categoria para los productos',
                 style: Theme.of(context).textTheme.titleMedium,
-                textAlign: TextAlign.center,
-              
+                textAlign: TextAlign.center, 
               );
             }
             return circularProgressIndicator(context);
@@ -70,8 +68,5 @@ class ProductsScreenState extends State<ProductsScreen> {
       ),
     );
   }
-
- 
 }
-
 

@@ -34,7 +34,7 @@ class AppBarCustom extends PreferredSize {
                   },
                   icon: const FaIcon(FontAwesomeIcons.circleArrowLeft),
                   color: CustomColors.pantone720,
-                  iconSize: 30,
+                  iconSize: 50,
                 ): Container()
                 ),
                 SizedBox(

@@ -36,7 +36,7 @@ class HomeScreenState extends State<HomeScreen> {
           children: [
             const SizedBox(height: 20),
               FadeInUp(
-                duration: const Duration(milliseconds: 1500),
+                duration: const Duration(milliseconds: 1000),
                 child:Text(
                   "Administrador Cebreterra",
                   style: Theme.of(context).textTheme.titleLarge,
